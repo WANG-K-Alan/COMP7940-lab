@@ -1,17 +1,12 @@
 ```mermaid
 graph TD
-    A[本地开发环境<br/>Local Machine] -->|1. git push| B[GitHub 仓库<br/>GitHub Repository]
-    B -->|2. 触发 Actions| C[GitHub Actions<br/>CI/CD 工作流]
-    C -->|3. SSH 连接| D[AWS EC2 实例]
+    A[Local Development Environment] -->|1. git push| B[GitHub Repository]
+    B -->|2. Trigger Actions| C[GitHub Actions CI/CD Workflow]
+    C -->|3. SSH Connection| D[AWS EC2 Instance]
     
-    subgraph E[部署过程 Deployment Process]
+    subgraph E[Deployment Process]
         D -->|4. git pull| B
-        D -->|5. 停止旧进程| F[pkill chatbot.py]
-        D -->|6. 启动新进程| G[nohup python chatbot.py]
+        D -->|5. Stop old process| F[pkill chatbot.py]
+        D -->|6. Start new process| G[nohup python chatbot.py]
     end
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#9f9,stroke:#333,stroke-width:2px
-    style C fill:#99f,stroke:#333,stroke-width:2px
-    style D fill:#ff9,stroke:#333,stroke-width:2px
 ```
